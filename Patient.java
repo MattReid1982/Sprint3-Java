@@ -17,4 +17,9 @@ public class Patient extends Person {
     public List<Prescription> getPrescriptions() {
         return prescriptions;
     }
+
+    @Override
+    public String toString() {
+        return "Patient: " + name + " | Age: " + age + " | Phone: " + phoneNumber;
+    }
 }

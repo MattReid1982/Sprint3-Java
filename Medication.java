@@ -29,12 +29,26 @@ public class Medication {
     }
 
     // accessors for other classes
+    public int getQuantityInStock() {
+        return quantityInStock;
+    }
+
+    public void setQuantityInStock(int quantityInStock) {
+        this.quantityInStock = quantityInStock;
+    }
+
+    // accessors for other classes
     public int getId() {
         return id;
     }
 
     public String getName() {
         return name;
+    }
+
+    @Override
+    public String toString() {
+        return "Medication: " + name + ", Dose: " + dose + " | Stock: " + quantityInStock;
     }
 }
 
