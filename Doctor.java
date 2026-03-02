@@ -1,7 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
 
-
 // Represents a medical doctor in the system.
 // A doctor has a specialization and manages a list of patients.
 // Inherits common person attributes (id, name, age, phone) from Person.
@@ -29,12 +28,10 @@ public class Doctor extends Person {
     
     // Assigns a patient to this doctor's care.
     // Param patient patient to add
-    
     public void addPatient(Patient patient) {
         patients.add(patient);
     }
 
-    
     // Returns an unmodifiable view of the doctor's patients list.
     public List<Patient> getPatients() {
         return patients;

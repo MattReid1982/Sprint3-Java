@@ -22,7 +22,6 @@ public class Medication {
 
     //  Construct a new medication entry with basic details and a randomly
     //  generated expiry within the next year.
-    
     public Medication(int id, String name, String dose, int quantityInStock) {
         this.id = id;
         this.name = name;
@@ -34,7 +33,6 @@ public class Medication {
     
     //  Helper to create a pseudo-random expiry date within the next year.
     //  This simulates a real-world expiration for testing/demo purposes.
-     
     private LocalDate generateRandomDate() {
         Random random = new Random();
         return LocalDate.now().plusDays(random.nextInt(365)); // Random date within the next year
@@ -42,16 +40,13 @@ public class Medication {
 
     
     // Return true if the medication's expiry date has passed
-    
     public boolean isExpired() {
         return expiryDate.isBefore(LocalDate.now());
     }
 
     
     // Increase inventory by the specified amount.
-    
     // Params amount number of units to add
-
     public void restock(int amount) {
         this.quantityInStock += amount;
     }

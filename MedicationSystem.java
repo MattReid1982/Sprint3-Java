@@ -19,19 +19,15 @@ public class MedicationSystem {
     // Add Methods
     
     // Register a new doctor in the system.
-    
     public void addDoctor(Doctor doctor) {
         doctors.add(doctor); // Add doctor to the system
     }
 
-    
     // Register a new patient in the system.
-     
     public void addPatient(Patient patient) {
         patients.add(patient); // Add patient to the system
     }
 
-     
     // Add a medication entry to the inventory.
     public void addMedication(Medication medication) {
         medications.add(medication); // Add medication to the system
@@ -47,7 +43,6 @@ public class MedicationSystem {
     // ----- Search Methods -----
     
     // Look up doctors by full name (case‑insensitive) and print matches.
-    
     public void searchDoctorByName(String name) {
         for (Doctor doctor : doctors) {
             if (doctor.getName().equalsIgnoreCase(name)) {
@@ -58,7 +53,6 @@ public class MedicationSystem {
 
     
     // Look up patients by full name (case‑insensitive) and print matches.
-    
     public void searchPatientByName(String name) {
         for (Patient patient : patients) {
             if (patient.getName().equalsIgnoreCase(name)) {
@@ -66,10 +60,8 @@ public class MedicationSystem {
             }
         }
     }
-
     
     // Look up medications by name (case‑insensitive) and print matches.
-     
     public void searchMedicationByName(String name) {
         for (Medication medication : medications) {
             if (medication.getName().equalsIgnoreCase(name)) {
@@ -79,8 +71,6 @@ public class MedicationSystem {
     }
 
     // Prescriptions
-
-    
     // Process a new prescription: store it globally and link the involved
     // patient and doctor records.
     
@@ -131,13 +121,13 @@ public class MedicationSystem {
             }
         }
     }
-
+    
     public void restockAllMedications() {
         for (Medication m : medications) {
             m.restock(10);
         }
     }
-
+    
     // Overload to accept Patient object (Main calls deletePatient(p2))
     public void deletePatient(Patient patient) {
         if (patient == null) return;
