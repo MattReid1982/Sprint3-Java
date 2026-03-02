@@ -1,4 +1,7 @@
-// Controller class for the medication system
+// Central controller that maintains collections of doctors, patients,
+// medications, and prescriptions. Provides operations for managing
+// and querying those entities.
+
 import java.util.ArrayList;
 import java.util.List;
 import java.time.LocalDate;
@@ -14,24 +17,37 @@ public class MedicationSystem {
     private List<Prescription> prescriptions = new ArrayList<>(); // List to store prescriptions
 
     // Add Methods
+    
+    // Register a new doctor in the system.
+    
     public void addDoctor(Doctor doctor) {
         doctors.add(doctor); // Add doctor to the system
     }
 
+    
+    // Register a new patient in the system.
+     
     public void addPatient(Patient patient) {
         patients.add(patient); // Add patient to the system
     }
 
+     
+    // Add a medication entry to the inventory.
     public void addMedication(Medication medication) {
         medications.add(medication); // Add medication to the system
     }
 
-    // Delete Methods
+    // ----- Delete Methods -----
+    
+    // Remove a patient from the system by their numeric ID.
     public void deletePatient(int patientId) {
         patients.removeIf(patient -> patient.getId() == patientId); // Remove patient by ID
     }
 
-    // Search Methods
+    // ----- Search Methods -----
+    
+    // Look up doctors by full name (case‑insensitive) and print matches.
+    
     public void searchDoctorByName(String name) {
         for (Doctor doctor : doctors) {
             if (doctor.getName().equalsIgnoreCase(name)) {
@@ -40,6 +56,9 @@ public class MedicationSystem {
         }
     }
 
+    
+    // Look up patients by full name (case‑insensitive) and print matches.
+    
     public void searchPatientByName(String name) {
         for (Patient patient : patients) {
             if (patient.getName().equalsIgnoreCase(name)) {
@@ -48,6 +67,9 @@ public class MedicationSystem {
         }
     }
 
+    
+    // Look up medications by name (case‑insensitive) and print matches.
+     
     public void searchMedicationByName(String name) {
         for (Medication medication : medications) {
             if (medication.getName().equalsIgnoreCase(name)) {
@@ -58,12 +80,20 @@ public class MedicationSystem {
 
     // Prescriptions
 
+    
+    // Process a new prescription: store it globally and link the involved
+    // patient and doctor records.
+    
     public void acceptPrescription(Prescription prescription) {
         prescriptions.add(prescription); // Add prescription to the system
         prescription.getPatient().addPrescription(prescription); // Associate prescription with patient
         prescription.getDoctor().addPatient(prescription.getPatient()); // Associate patient with doctor
     }
 
+    
+    // Print current contents of all lists (doctors, patients,
+    // medications, prescriptions) for debugging or reporting.
+    
     public void generateReport() {
         System.out.println("\n--- Doctors ---");
         for (Doctor d : doctors) {
@@ -112,14 +142,16 @@ public class MedicationSystem {
     public void deletePatient(Patient patient) {
         if (patient == null) return;
         patients.removeIf(p -> p.getId() == patient.getId());
+        
         // remove prescriptions for that patient
         prescriptions.removeIf(pr -> pr.getPatient().getId() == patient.getId());
+        
         // remove patient from any doctor's patient lists
         for (Doctor d : doctors) {
             d.getPatients().removeIf(p -> p.getId() == patient.getId());
         }
     }
-
+    // Get the past years prescription summary
     public void getPastYearPrescriptionsSummary() {
         java.time.LocalDate oneYearAgo = java.time.LocalDate.now().minusYears(1);
         int count = 0;

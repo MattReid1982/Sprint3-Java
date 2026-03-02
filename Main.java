@@ -1,3 +1,6 @@
+// Simple console-based driver to exercise the MedicationSystem classes.
+// Contains hardcoded test scenarios demonstrating functionality.
+ 
 public class Main {
     public static void main(String[] args){
         System.out.println("=== Starting System Tests ===");
