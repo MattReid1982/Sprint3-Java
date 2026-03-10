@@ -23,6 +23,21 @@ public class Patient extends Person {
         prescriptions.add(prescription);
     }
 
+    // Add Medication
+    public void addMedication(Medication medication) {
+        medications.add(medication);
+    }
+
+    // Remove Medication
+    public void removeMedication(Medication medication) {
+        medications.remove(medication);
+    }
+
+    // Get Medications
+    public List<Medication> getMedications() {
+        return medications;
+    }
+
     // Retrieve the list of prescriptions for this patient.
     public List<Prescription> getPrescriptions() {
         return prescriptions;
