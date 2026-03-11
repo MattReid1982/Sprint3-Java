@@ -1,0 +1,39 @@
+# Compiled Java files
+
+*.class
+
+# Log files
+
+*.log
+
+# Package files
+
+*.jar
+*.war
+*.ear
+
+# IDE files
+
+.vscode/
+.idea/
+*.iml
+
+# Mac system files
+
+.DS_Store
+
+# Build directories
+
+bin/
+build/
+out/
+
+# Generated Javadoc
+
+doc/
+docs/
+
+# Temporary files
+
+*.tmp
+
